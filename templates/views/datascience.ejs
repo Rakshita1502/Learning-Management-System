@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks</title>
+  <link rel="stylesheet" href="css/style.css">
+   <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+  .container{
+    margin:5% !important;
+  }
+  .course-heading{
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  .course-subheading{
+  
+    margin-bottom: 2%;
+  }
+  iframe{
+    margin:5%;
+  }
+
+  .info{
+    margin-top: 3%;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  a:hover{
+    color: white;
+  }
+</style>
+</head>
+
+<body>
+
+  <%- include("navbar.ejs") %>
+  <div class="container">
+    <center>
+
+      <div class="headings">
+       <h2 class="course-heading">The Data Science Course 2021: Complete Data Science Bootcamp</h2>
+       <h6 class="course-subheading">Complete Data Science Training: Mathematics, Statistics, Python, Advanced Statistics in Python, Machine & Deep Learning</h6>
+      </div>
+  
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/-ETQ97mXXF0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <form action="/visitdatascience" method="post">
+        <% if(data===true){ %>
+          <button type="button" class="btn btn-secondary">Completed</button>
+        <%   }else{ %>
+         <button type="submit" class="btn btn-success">Mark Completed</button>
+        <%  } %>   
+      </form> 
+    </center>
+
+    <div class="info">
+      <h4>What you will learn</h4>
+
+      <ul>
+        <li>The course provides the entire toolbox you need to become a data scientist</li>
+        <li>Perform linear and logistic regressions in Python</li>
+        <li>Use state-of-the-art Deep Learning frameworks such as Google’s TensorFlowDevelop a business intuition while coding and solving tasks with big data</li>
+        <li>Learn how to pre-process data</li>
+        <li>Carry out cluster and factor analysis</li>
+        <li>Apply your skills to real-life business cases</li>
+      </ul>
+    </div>
+  
+
+  <div class="contents">
+    <h4>Contents</h4>
+    <ul>
+     
+      <li>Introduction</li>
+      <li>The various Data Science desciplines</li>
+      <li>Popular Data Science techniques</li>
+      <li>Data Science tools</li>
+      <li>Statistics</li>
+      <li>Python</li>
+      <li>Deep learning</li>
+      <li>Software Integration</li>
+
+  </div>
+
+  <div class="requirements">
+    <h4>Requirements</h4>
+    <ul>
+      <li>No prior experience is required. We will start from the very basics</li>
+      <li>You’ll need to install Anaconda. We will show you how to do that step by step</li>
+      <li>Microsoft Excel 2003, 2010, 2013, 2016, or 365</li>
+    </ul>
+  </div>
+  
+</div>
+
+<%- include("footer.ejs") %>
+</body>
+</html>

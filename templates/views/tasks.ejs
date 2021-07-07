@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+   .container{
+    margin-top:5%;
+  }
+
+  table,.table-heading{
+    margin-top: 3% !important;
+  }
+
+  td{
+    text-align: center!important;
+    vertical-align: middle;
+
+  }
+</style>
+
+</head>
+<body>
+  
+  <%- include("navbar.ejs") %>
+
+
+  <center>
+    <h1>Manage your tasks here!</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-12">
+
+        <form action="/addtask" method="POST">
+        
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="task" id="task" placeholder="Enter a task">
+          </div>
+          
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="date" id="id" placeholder="Enter deadline date(YYYY-MM-DD)">
+          </div>
+
+          <button type="submit" class="btn btn-primary" value="Add">Add</button>
+            
+        </form>
+
+      </div>
+    </div>
+
+    <!--  -->
+    <!--  -->
+    <table class="table table-dark table-hover">
+      <tr>
+        <td>Task</td>
+        <td>status</td>
+        <td>delete</td>
+      </tr>
+    
+
+    <% for(var tasks of data){ %>
+      <tr>
+  
+        <form action="/deletetask" method="POST">
+          <td>  <p><%= tasks.taskname %></p>
+          <p><%= tasks.date %></p> </td>
+
+          <input type="hidden" name="id" value="<%= tasks._id %>">
+
+        <%  if(tasks.completed){ %>
+            <td> <button type="button" class="btn btn-secondary">Completed</button> </td>
+        <%  }else{ %>
+            <td> <button type="submit" class="btn btn-success" formaction="/updatetask">Mark completed</button> </td>
+        <%  } %>
+          
+          <td> <button type="submit" class="btn btn-danger">Delete</button> </td>
+
+        </form>
+      </tr>
+    <% } %>
+  </table>
+  </div>
+
+
+  <%- include("footer.ejs") %>
+  
+</body>
+</html>

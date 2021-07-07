@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+ form{
+   margin-left:10%;
+   margin-right: 10%;
+ }
+
+ a {
+  text-decoration: none;
+  color: white;
+}
+a:hover{
+  color: white;
+}
+</style>
+</head>
+<body>
+
+  <%- include("navbar.ejs") %>
+
+  <center>
+    <h1>USER PROFILE</h1>
+  </center>
+  
+  <form action="/profileview" method="post">
+
+    <div class=" mb-3">
+      <label for="">Firstname :  </label><br>    
+      <input type="text" class="form-control" name="firstname" value="<%= item.firstname %>">
+    </div>
+
+    <div class=" mb-3">
+      <label for="">Lastname :  </label><br>    
+      <input type="text" class="form-control" name="lastname" value="<%= item.lastname %>">
+    </div>
+
+    <div class=" mb-3">
+      <label for="">Mobile No :  </label><br>    
+      <input type="number" class="form-control" name="phone" value="<%= item.phone %>">
+    </div>
+
+    <div class=" mb-3">
+      <label for="">Email :  </label><br>    
+      <input type="text" class="form-control" name="email" value="<%= item.email %>">
+    </div>
+
+  
+  <button type="submit" class="btn btn-dark"> <a href="/profileupdate"> Update Profile</a> </button>
+
+    
+  </form>
+  
+
+</body>
+</html>
